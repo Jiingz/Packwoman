@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using anticheat;
+using anticheat.modules;
+
+AnticheatProvider.GetAnticheatProvider().ExecuteModules();
