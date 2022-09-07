@@ -59,6 +59,14 @@ namespace anticheat
 
             return _modules.Count > previousCount;
         }
+
+        public bool RemoveModule(IAnticheatModule module)
+        {
+            int previousCount = _modules.Count;
+            _modules.Remove(module);
+
+            return _modules.Count > previousCount;
+        }
     }
 
 }
