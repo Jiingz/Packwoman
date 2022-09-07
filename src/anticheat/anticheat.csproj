@@ -9,6 +9,7 @@
     <BaseIntermediateOutputPath>$(SolutionDir)build\output</BaseIntermediateOutputPath>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>C:\dev\Packwoman\build\Release\net6.0\Documentation</DocumentationFile>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
 </Project>

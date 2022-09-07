@@ -1,12 +1,18 @@
-﻿namespace anticheat
+﻿using System.Diagnostics;
+
+namespace anticheat
 {
     internal enum _LOGGER_TYPE
     {
         SUCCESS,
         ERROR,
-        INFO
+        INFO,
+        WARNING
     }
 
+    /// <summary>
+    /// Custom Logger class to log events of the application.
+    /// </summary>
     internal class Logger
     {
         private static Logger _logger;
@@ -21,26 +27,35 @@
 
         internal void Log(_LOGGER_TYPE logType, string message)
         {
+            StackFrame callStack = new StackFrame(1, true);
 
             switch (logType)
             {
                 case _LOGGER_TYPE.SUCCESS:
+
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + " [SUCCESS] -> " + message);
+                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + " [SUCCESS] " + callStack.GetMethod().Name + "() -> " + message);
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
 
                 case _LOGGER_TYPE.ERROR:
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + "[ERROR] -> " + message);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + "[ERROR] " + callStack.GetMethod().Name + "() -> " + message);
+                    Console.WriteLine("[File: " + callStack.GetFileName() + " Line: " + callStack.GetFileLineNumber() + "]");
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
 
                 case _LOGGER_TYPE.INFO:
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + "[INFO] -> " + message);
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + "[INFO] " + callStack.GetMethod().Name + "() -> " + message);
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
+                case _LOGGER_TYPE.WARNING:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + "[WARNING] " + callStack.GetMethod().Name + "() -> " + message);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+
             }
         }
     }

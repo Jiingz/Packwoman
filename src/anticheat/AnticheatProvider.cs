@@ -13,7 +13,9 @@ namespace anticheat
         // Contains all Anticheat-Modules.
         List<IAnticheatModule> _modules;
 
-        private AnticheatProvider() { }
+        private AnticheatProvider() 
+        {
+        }
 
         /// <summary>
         /// Returns the Singleton of AnticheatProvider.
@@ -23,6 +25,9 @@ namespace anticheat
         {
             if (_provider == null)
                 _provider = new AnticheatProvider { _modules = new List<IAnticheatModule>() };
+
+            BlacklistedDLLModule module = new BlacklistedDLLModule();
+            _provider.AddModule(module);
 
             return _provider;
         }
