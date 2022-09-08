@@ -57,6 +57,8 @@ namespace anticheat.modules
             {
                 if (IsModuleLoaded(moduleName))
                     return true;
+                else
+                    BanHandler.GetBanHandler().Publish();
             }
 
             return false;

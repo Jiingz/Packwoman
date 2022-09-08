@@ -13,7 +13,7 @@ namespace anticheat
         // Contains all Anticheat-Modules.
         List<IAnticheatModule> _modules;
 
-        private AnticheatProvider() 
+        private AnticheatProvider()
         {
         }
 
@@ -23,6 +23,7 @@ namespace anticheat
         /// <returns></returns>
         public static AnticheatProvider GetAnticheatProvider()
         {
+
             if (_provider == null)
                 _provider = new AnticheatProvider { _modules = new List<IAnticheatModule>() };
 
@@ -38,6 +39,9 @@ namespace anticheat
         /// <returns><see cref="Task.CompletedTask"/> if the module has been executed successful.</returns>
         public void ExecuteModules()
         {
+            if (!BanHandler.GetBanHandler().IsConfigured())
+                Logger.GetLogger().Log(_LOGGER_TYPE.WARNING, "No Ban Handler has been subscribed. Ban events won't trigger!");
+
             Logger.GetLogger().Log(_LOGGER_TYPE.INFO, "Executing Modules");
             foreach (var module in _modules)
             {

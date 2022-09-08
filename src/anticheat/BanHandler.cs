@@ -46,11 +46,17 @@
         {
             if (_publisher == null)
             {
-                Logger.GetLogger().Log(_LOGGER_TYPE.ERROR, "No Ban Handler has been subscribed!");
+                return;
             }
 
             _publisher();
 
+        }
+
+        //Returns true if a BanHandler has been subscribed.
+        public bool IsConfigured()
+        {
+            return _publisher != null;
         }
     }
 }
