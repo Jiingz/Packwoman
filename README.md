@@ -9,6 +9,7 @@
 </h1>
 
 <h4 align="center">A simple and very basic usermode anticheat library</h4>
+<h3 align="center">This repository and everything related to it are not and never will be associated with Riot Games in any way.</h3>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
