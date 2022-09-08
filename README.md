@@ -43,8 +43,19 @@ $ git clone https://github.com/Jiingz/Packwoman.git
 
 * Add the library to your project.
 
+### How to create your own Modules
 ```bash
-#Setup your own Ban Handle function
+class YourModule : IAnticheatModule
+
+//Implemented from the IAnticheatModule
+public void Execute()
+{
+  //Execute your module logic here
+}
+```
+
+### Setup your own Ban Handle function
+```bash
 void HandleBans()
 {
     //Ban Logic
@@ -53,8 +64,12 @@ void HandleBans()
 
 BanHandler.GetBanHandler().SubscribeBanHandler(HandleBans);
 ```
+### Add modules
 ```bash
-#Execute Anticheat Modules
+AntiCheatProvider.GetAntiCheatProvider().AddModule(new YourModule());
+```
+### Execute Anticheat Modules
+```bash
 AntiCheatProvider.GetAntiCheatProvider().ExecuteModules();
 ```
 
