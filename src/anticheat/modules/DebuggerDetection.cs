@@ -3,12 +3,16 @@ using packwoman.modules;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 
 namespace packwoman.modules
 {
     public class DebuggerDetection : IAnticheatModule
     {
         string[] debuggers = { "IDA" };
+
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        private static extern bool CheckRemoteDebuggerPresent(IntPtr hProcess, ref bool isDebuggerPresent);
 
         private (bool, string) IsDebuggerOpen()
         {
@@ -30,6 +34,12 @@ namespace packwoman.modules
 
         public void Execute()
         {
+            bool isDebuggerPresent = false;
+            CheckRemoteDebuggerPresent(Process.GetCurrentProcess().Handle, ref isDebuggerPresent);
+
+            if (isDebuggerPresent)
+                Logger.GetLogger().Log(_LOGGER_TYPE.WARNING, "A attached Debugger has been found!");
+
             if (IsDebuggerOpen().Item1)
                 Logger.GetLogger().Log(_LOGGER_TYPE.WARNING, "A open debugger has been found: " + IsDebuggerOpen().Item2);
         }
