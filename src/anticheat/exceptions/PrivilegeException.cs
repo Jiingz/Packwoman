@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace anticheat.exceptions
+namespace packwoman.exceptions
 {
     /// <summary>
     /// Exception which is being raised, when the user doesn't have the required priviliges to execute a certain Task.

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "anticheat", "src\anticheat\anticheat.csproj", "{CE0A3A78-D64B-49AC-8B02-88A207E396E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "packwoman", "src\anticheat\packwoman.csproj", "{CE0A3A78-D64B-49AC-8B02-88A207E396E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "example-usage", "src\example-usage\example-usage.csproj", "{85250D36-3AA6-4C3F-8383-8953C9768A8A}"
 EndProject

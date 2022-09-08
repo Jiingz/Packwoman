@@ -1,4 +1,4 @@
-﻿namespace anticheat
+﻿namespace packwoman
 {
     /// <summary>
     /// Event System to provide a possibilty to subscribe a Ban function and publish it.

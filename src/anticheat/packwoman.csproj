@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,6 +10,8 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>C:\dev\Packwoman\build\Release\net6.0\Documentation</DocumentationFile>
     <Platforms>AnyCPU;x64</Platforms>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Packwoman</Title>
   </PropertyGroup>
 
 </Project>

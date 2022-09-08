@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace anticheat
+namespace packwoman
 {
     internal enum _LOGGER_TYPE
     {
@@ -34,7 +34,7 @@ namespace anticheat
                 case _LOGGER_TYPE.SUCCESS:
 
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + " [SUCCESS] " + callStack.GetMethod().Name + "() -> " + message);
+                    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss tt") + "[SUCCESS] " + callStack.GetMethod().Name + "() -> " + message);
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
 

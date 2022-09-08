@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\anticheat\anticheat.csproj" />
+    <ProjectReference Include="..\anticheat\packwoman.csproj" />
   </ItemGroup>
 
 </Project>

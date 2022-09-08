@@ -1,7 +1,7 @@
-﻿using anticheat.exceptions;
+﻿using packwoman.exceptions;
 using System.Diagnostics;
 
-namespace anticheat.modules
+namespace packwoman.modules
 {
     internal class BlacklistedDLLModule : IAnticheatModule
     {
@@ -39,6 +39,7 @@ namespace anticheat.modules
                     //Console.WriteLine(myProcessModule.ModuleName);
                     if (myProcessModule.ModuleName.Contains(ModuleName))
                     {
+                        Logger.GetLogger().Log(_LOGGER_TYPE.SUCCESS, "Blacklisted module found! Module Name: " + myProcessModule.ModuleName);
 
                         loaded = true;
                         break;
@@ -57,8 +58,7 @@ namespace anticheat.modules
             {
                 if (IsModuleLoaded(moduleName))
                     return true;
-                else
-                    BanHandler.GetBanHandler().Publish();
+
             }
 
             return false;
@@ -69,8 +69,10 @@ namespace anticheat.modules
             Logger.GetLogger().Log(_LOGGER_TYPE.INFO, "Checking for blacklisted modules...");
 
             if (DetectBlacklistedModules())
-
+            {
                 Logger.GetLogger().Log(_LOGGER_TYPE.INFO, "Blacklisted module found!");
+                BanHandler.GetBanHandler().Publish();
+            }
             else
                 Logger.GetLogger().Log(_LOGGER_TYPE.INFO, "No blacklisted module found.");
 

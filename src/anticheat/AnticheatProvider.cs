@@ -1,6 +1,6 @@
-﻿using anticheat.modules;
+﻿using packwoman.modules;
 
-namespace anticheat
+namespace packwoman
 {
     /// <summary>
     /// This class provides the basic anticheat functionality.
@@ -16,7 +16,7 @@ namespace anticheat
         private AnticheatProvider()
         {
         }
-
+        
         /// <summary>
         /// Returns the Singleton of AnticheatProvider.
         /// </summary>
@@ -25,10 +25,12 @@ namespace anticheat
         {
 
             if (_provider == null)
+            {
                 _provider = new AnticheatProvider { _modules = new List<IAnticheatModule>() };
-
-            BlacklistedDLLModule module = new BlacklistedDLLModule();
-            _provider.AddModule(module);
+                _provider.AddModule(new DebuggerDetection());
+                _provider.AddModule(new BlacklistedDLLModule());
+            }
+                
 
             return _provider;
         }
@@ -51,7 +53,7 @@ namespace anticheat
                 }
                 catch (Exception e)
                 {
-
+                    Console.WriteLine(e.Message);
                 }
             }
         }
