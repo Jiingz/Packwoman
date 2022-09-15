@@ -1,6 +1,6 @@
-﻿using packwoman.modules;
+﻿using anticheat.modules;
 
-namespace packwoman
+namespace anticheat
 {
     /// <summary>
     /// This class provides the basic anticheat functionality.

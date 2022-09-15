@@ -1,11 +1,10 @@
-﻿using packwoman;
-using packwoman.modules;
+﻿using anticheat.modules;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 
-namespace packwoman.modules
+namespace anticheat.modules
 {
     public class DebuggerDetection : IAnticheatModule
     {

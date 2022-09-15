@@ -1,5 +1,4 @@
-﻿using packwoman;
-using packwoman.modules;
+﻿using anticheat;
 
 void HandleBans()
 {

@@ -1,4 +1,4 @@
-﻿namespace packwoman.modules
+﻿namespace anticheat.modules
 {
    public interface IAnticheatModule
     {

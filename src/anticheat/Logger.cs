@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace packwoman
+namespace anticheat
 {
     internal enum _LOGGER_TYPE
     {

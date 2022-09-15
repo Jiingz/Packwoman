@@ -1,12 +1,12 @@
-﻿using packwoman.exceptions;
+﻿using anticheat.exceptions;
 using System.Diagnostics;
 
-namespace packwoman.modules
+namespace anticheat.modules
 {
     internal class BlacklistedDLLModule : IAnticheatModule
     {
         //Array which contains all blacklisted modules.
-        string[] _blacklistedModules = { "Payload.dll" };
+        List<string> _blacklistedModules = new List<string> { "Payload.dll" };
 
         /// <summary>
         /// Returns true if then given module name has been found.
@@ -62,6 +62,11 @@ namespace packwoman.modules
             }
 
             return false;
+        }
+
+        public void AddBlacklistedModule(string moduleName)
+        {
+            _blacklistedModules.Add(moduleName);
         }
 
         public void Execute()
